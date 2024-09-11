@@ -16,6 +16,11 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const gtLibreBaskerville = localFont({
+  src: "./fonts/LibreBaskerville-Regular.ttf",
+  variable: "--font-libre-baskerville",
+});
+
 export const metadata: Metadata = {
   title: "Clear Energy Partners",
   description: "Expertise in solar decommissioning and recycling solutions",
@@ -29,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${gtLibreBaskerville.variable} antialiased`}
       >
         <Navbar />
         {children}
