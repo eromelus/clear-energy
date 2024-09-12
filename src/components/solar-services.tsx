@@ -11,7 +11,7 @@ export function SolarServices() {
             <h2 className="text-amber-500 font-semibold mb-3 text-sm">
               SAFE, EFFICIENT, SUSTAINABLE
             </h2>
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight font-libre-baskerville">
               Expert Solar Decommissioning Services for a Greener Future
             </h1>
             <div className="space-y-4 text-sm md:text-base md:w-1/2 lg:w-full">
@@ -52,8 +52,8 @@ export function SolarServices() {
                   <span
                     className={
                       typeof item === "string"
-                        ? "text-lg md:text-xl lg:text-2xl font-light leading-tight"
-                        : "text-xs"
+                        ? "text-lg md:text-xl lg:text-2xl font-light leading-tight font-libre-baskerville"
+                        : "text-xs font-poppins"
                     }
                   >
                     {typeof item === "string" ? item : item.text}

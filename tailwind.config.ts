@@ -13,6 +13,12 @@ const config: Config = {
 			navy: {
 				DEFAULT: '#002D44'
 			},
+			blue: {
+				DEFAULT: '#0191D8'
+			},
+			darkBlue: {
+				DEFAULT: '#0D1E2D'
+			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

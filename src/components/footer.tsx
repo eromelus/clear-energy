@@ -35,10 +35,10 @@ export function Footer() {
               alt="Clear Energy Partners Logo"
               className="h-10 w-auto"
             />
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-navy">
               Powering a Greener Tomorrow
             </p>
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-navy">
               © 2023 Clear Energy Partners. All rights reserved.
             </p>
           </div>
@@ -47,10 +47,10 @@ export function Footer() {
           {footerSections.map((section) => (
             <div
               key={section.title}
-              className="border-t border-gray-200 pt-4 lg:border-t-0 lg:pt-0"
+              className="border-t border-gray-200 pt-4 lg:border-t-0 lg:pt-0 text-navy"
             >
               <button
-                className="flex w-full items-center justify-between text-left font-semibold lg:cursor-default"
+                className="flex w-full items-center justify-between text-left font-light lg:cursor-default"
                 onClick={() => toggleSection(section.title)}
               >
                 {section.title}
@@ -71,7 +71,7 @@ export function Footer() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-sm text-gray-600 hover:text-gray-900"
+                      className="text-sm text-navy font-semibold hover:text-gray-900"
                     >
                       {link}
                     </a>
@@ -83,8 +83,8 @@ export function Footer() {
         </div>
       </div>
       <div className="bg-gray-100 mt-8">
-        <p className="text-[12vw] leading-[0.9] text-gray-200 italic font-light text-center px-0 py-4 md:text-[8vw] md:leading-none">
-          Clean Energy
+        <p className="text-[12vw] leading-[0.9] text-gray-200 italic font-bold text-center px-0 py-4 md:text-[8vw] md:leading-none font-libre-baskerville">
+          Clear Energy
           <br className="md:hidden" />
           {" Partners"}
         </p>
