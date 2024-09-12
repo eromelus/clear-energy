@@ -21,7 +21,7 @@ export function Hero() {
           priority
         />
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-center lg:inset-0 lg:items-start lg:justify-end">
-          <div className="w-full max-w-[320px] bg-navy-900 p-6 text-white md:max-w-[480px] lg:m-6 lg:max-w-md lg:rounded-lg">
+          <div className="w-full max-w-[320px] bg-navy p-6 text-white md:max-w-[480px] lg:m-6 lg:max-w-md lg:rounded-lg">
             <p className="mb-6 text-sm md:text-base">
               We specialize in the safe and responsible decommissioning of solar
               projects, ensuring proper handling and recycling of end-of- life
@@ -29,7 +29,7 @@ export function Hero() {
             </p>
             <Link
               href="/learn-more"
-              className="inline-flex items-center rounded border border-white px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-navy-900"
+              className="inline-flex items-center border border-white px-8 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-navy"
             >
               Learn More
               <svg
