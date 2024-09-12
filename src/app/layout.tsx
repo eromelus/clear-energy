@@ -3,6 +3,7 @@ import { Navbar } from "../components/navbar";
 import { Footer } from "@/components/footer";
 
 import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -16,9 +17,15 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const gtLibreBaskerville = localFont({
+const getLibreBaskerville = localFont({
   src: "./fonts/LibreBaskerville-Regular.ttf",
   variable: "--font-libre-baskerville",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${gtLibreBaskerville.variable} antialiased`}
+        className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} ${getLibreBaskerville.variable} antialiased`}
       >
         <Navbar />
         {children}

@@ -61,6 +61,7 @@ const config: Config = {
   		},
   		fontFamily: {
   			'libre-baskerville': ['var(--font-libre-baskerville)'],
+			sans: ['var(--font-poppins)'],
   		}
   	}
   },
