@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <div className="flex flex-col px-4 py-8 md:px-6 lg:px-8">
       <h1 className="mb-8 text-center text-3xl font-bold leading-tight text-navy tracking-[-2px]  md:text-4xl lg:text-left lg:text-5xl lg:pl-8 font-libre-baskerville">
-        Expertise in solar <br />
+        Experts in solar <br />
         decommissioning and <br />
         recycling <span className="italic font-[500]">solutions</span>.
       </h1>

@@ -12,12 +12,12 @@ export function SolarServices() {
               SAFE, EFFICIENT, SUSTAINABLE
             </h2>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight font-libre-baskerville">
-              Expert Solar Decommissioning Services for a Greener Future
+              Solar Decommissioning Services for a Greener Future
             </h1>
             <div className="space-y-4 text-sm md:text-base md:w-1/2 lg:w-full">
               <p>
-                Our expert team specializes in solar decommissioning services
-                that are both efficient and sustainable.
+                Our team specializes in solar decommissioning services that are
+                both efficient and sustainable.
               </p>
               <p>
                 We follow industry best practices to safely dismantle and remove
@@ -36,7 +36,7 @@ export function SolarServices() {
                   isDescription: true,
                 },
                 "Replacement OEM Solar Panels",
-                "Distributing Solar Panels on the Buy and Sell Side",
+                "Wholsesale Solar Panel Distibutor",
               ].map((item, index) => (
                 <div
                   key={index}
