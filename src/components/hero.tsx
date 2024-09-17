@@ -16,8 +16,9 @@ export function Hero() {
         <Image
           src="/images/solar-panels.png"
           alt="Solar panels"
-          layout="fill"
-          objectFit="cover"
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
           priority
         />
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-center lg:inset-0 lg:items-start lg:justify-end">

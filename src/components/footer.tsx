@@ -33,7 +33,9 @@ export function Footer() {
             <img
               src="/images/logo.png"
               alt="Clear Energy Partners Logo"
-              className="h-10 w-auto"
+              width={160}
+              height={40}
+              style={{ width: "auto", height: "auto", maxHeight: "40px" }}
             />
             <p className="mt-2 text-sm text-navy">
               Powering a Greener Tomorrow

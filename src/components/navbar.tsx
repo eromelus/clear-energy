@@ -32,7 +32,7 @@ export function Navbar() {
                 alt="Clear Energy Partners logo"
                 width={160}
                 height={40}
-                className="h-10 w-auto"
+                style={{ width: "auto", height: "auto", maxHeight: "40px" }}
               />
             </div>
             <div className="hidden lg:block">
