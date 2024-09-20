@@ -1,8 +1,57 @@
 "use client";
 
+import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+} from "../components/ui/form";
+import { Button } from "../components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Input } from "./ui/input";
+import {
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  Select,
+} from "./ui/select";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  company: z.string(),
+  options: z.enum([
+    "Solar Decommission",
+    "Recycling Services",
+    "OEM Replacements",
+  ]),
+  emailAddress: z.string().email("Invalid email address"),
+  phoneNumber: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
 
 export function ContactForm() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      options: "Solar Decommission",
+      emailAddress: "",
+      company: "",
+      phoneNumber: "",
+      message: "",
+    },
+  });
+
+  const handleSubmit = (values: z.infer<typeof formSchema>) => {
+    console.log("Form submitted successfully:", values);
+  };
+
   return (
     <section className="bg-navy text-gray-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -46,115 +95,260 @@ export function ContactForm() {
               </ul>
             </div>
           </div>
+
           <div className="lg:w-1/2">
-            <form className="space-y-4">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-1 text-blue"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(handleSubmit)}
+                className="space-y-4"
+              >
+                <FormField
+                  control={form.control}
                   name="name"
-                  className="w-full px-3 py-2 bg-darkBlue border-0 rounded-md text-white text-sm placeholder-gray-400"
-                  placeholder="Write your name"
+                  render={({ field, fieldState }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Name"
+                          type="text"
+                          {...field} // Only spread the field prop, not fieldState
+                        />
+                      </FormControl>
+                      {fieldState.error && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {fieldState.error.message}
+                        </p>
+                      )}
+                    </FormItem>
+                  )}
                 />
-              </div>
-              <div>
-                <label
-                  htmlFor="option"
-                  className="block text-sm font-medium mb-1 text-blue"
-                >
-                  Select Option
-                </label>
-                <select
-                  id="option"
-                  name="option"
-                  className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm"
-                >
-                  <option>Solar Decomission</option>
-                  <option>Recycling</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="company"
-                  className="block text-sm font-medium mb-1 text-blue"
-                >
-                  Company
-                </label>
-                <input
-                  type="text"
-                  id="company"
+
+                <FormField
+                  control={form.control}
+                  name="options"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Select Options</FormLabel>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="How can we help?" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Solar Decommission">
+                            Solar Decommission
+                          </SelectItem>
+                          <SelectItem value="Recycling Services">
+                            Recycling Services
+                          </SelectItem>
+                          <SelectItem value="OEM Replacements">
+                            OEM Replacements
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
                   name="company"
-                  className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
-                  placeholder="Input your company name"
+                  render={({ field, fieldState }) => (
+                    <FormItem>
+                      <FormLabel>Company</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Company"
+                          type="text"
+                          {...field} // Only spread the field prop, not fieldState
+                        />
+                      </FormControl>
+                      {fieldState.error && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {fieldState.error.message}
+                        </p>
+                      )}
+                    </FormItem>
+                  )}
                 />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-1 text-blue"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
-                  placeholder="Input your working email"
+                <FormField
+                  control={form.control}
+                  name="emailAddress"
+                  render={({ field, fieldState }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Email address"
+                          type="email"
+                          {...field} // Only spread the field prop, not fieldState
+                        />
+                      </FormControl>
+                      {fieldState.error && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {fieldState.error.message}
+                        </p>
+                      )}
+                    </FormItem>
+                  )}
                 />
-              </div>
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium mb-1 text-blue"
-                >
-                  Phone
-                </label>
-                <div className="flex">
-                  <span className="inline-flex items-center px-3 rounded-l-sm border-0 bg-darkBlue text-gray-400 sm:text-sm">
-                    +01
-                  </span>
+                <FormField
+                  control={form.control}
+                  name="phoneNumber"
+                  render={({ field, fieldState }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Phone Number"
+                          type="text"
+                          {...field} // Only spread the field prop, not fieldState
+                        />
+                      </FormControl>
+                      {fieldState.error && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {fieldState.error.message}
+                        </p>
+                      )}
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field, fieldState }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Message"
+                          type="message"
+                          {...field} // Only spread the field prop, not fieldState
+                        />
+                      </FormControl>
+                      {fieldState.error && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {fieldState.error.message}
+                        </p>
+                      )}
+                    </FormItem>
+                  )}
+                />
+
+                <Button type="submit">Submit</Button>
+                {/* <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-1 text-blue"
+                  >
+                    Name
+                  </label>
                   <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    className="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-sm bg-darkBlue border-0 text-white text-sm placeholder-gray-400"
-                    placeholder="000 - 0000"
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full px-3 py-2 bg-darkBlue border-0 rounded-md text-white text-sm placeholder-gray-400"
+                    placeholder="Write your name"
                   />
                 </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-1 text-blue"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
-                  placeholder="Type your message..."
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  className="w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600"
-                >
-                  Send Message
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
-              </div>
-            </form>
+                <div>
+                  <label
+                    htmlFor="option"
+                    className="block text-sm font-medium mb-1 text-blue"
+                  >
+                    Select Option
+                  </label>
+                  <select
+                    id="option"
+                    name="option"
+                    className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm"
+                  >
+                    <option>Solar Decomission</option>
+                    <option>Recycling</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="company"
+                    className="block text-sm font-medium mb-1 text-blue"
+                  >
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
+                    placeholder="Input your company name"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-1 text-blue"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
+                    placeholder="Input your working email"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium mb-1 text-blue"
+                  >
+                    Phone
+                  </label>
+                  <div className="flex">
+                    <span className="inline-flex items-center px-3 rounded-l-sm border-0 bg-darkBlue text-gray-400 sm:text-sm">
+                      +01
+                    </span>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-sm bg-darkBlue border-0 text-white text-sm placeholder-gray-400"
+                      placeholder="000 - 0000"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-1 text-blue"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
+                    placeholder="Type your message..."
+                  ></textarea>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600"
+                  >
+                    Send Message
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </button>
+                </div> */}
+              </form>
+            </Form>
           </div>
         </div>
       </div>
