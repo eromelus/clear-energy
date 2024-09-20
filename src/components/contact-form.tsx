@@ -21,6 +21,7 @@ import {
   SelectValue,
   Select,
 } from "./ui/select";
+import { Textarea } from "./ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -107,12 +108,15 @@ export function ContactForm() {
                   name="name"
                   render={({ field, fieldState }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel className="block text-sm font-medium mb-1 text-blue">
+                        Name
+                      </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Name"
+                          placeholder="Write your name"
                           type="text"
-                          {...field} // Only spread the field prop, not fieldState
+                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-md text-white text-sm placeholder-gray-400"
+                          {...field}
                         />
                       </FormControl>
                       {fieldState.error && (
@@ -129,13 +133,15 @@ export function ContactForm() {
                   name="options"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Select Options</FormLabel>
+                      <FormLabel className="block text-sm font-medium mb-1 text-blue">
+                        How Can We Help?
+                      </FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm">
                             <SelectValue placeholder="How can we help?" />
                           </SelectTrigger>
                         </FormControl>
@@ -159,12 +165,15 @@ export function ContactForm() {
                   name="company"
                   render={({ field, fieldState }) => (
                     <FormItem>
-                      <FormLabel>Company</FormLabel>
+                      <FormLabel className="block text-sm font-medium mb-1 text-blue">
+                        Company
+                      </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Company"
+                          placeholder="Input your company name"
                           type="text"
-                          {...field} // Only spread the field prop, not fieldState
+                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
+                          {...field}
                         />
                       </FormControl>
                       {fieldState.error && (
@@ -180,12 +189,15 @@ export function ContactForm() {
                   name="emailAddress"
                   render={({ field, fieldState }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel className="block text-sm font-medium mb-1 text-blue">
+                        Email
+                      </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Email address"
+                          placeholder="Input your working email"
                           type="email"
-                          {...field} // Only spread the field prop, not fieldState
+                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
+                          {...field}
                         />
                       </FormControl>
                       {fieldState.error && (
@@ -201,12 +213,15 @@ export function ContactForm() {
                   name="phoneNumber"
                   render={({ field, fieldState }) => (
                     <FormItem>
-                      <FormLabel>Phone Number</FormLabel>
+                      <FormLabel className="block text-sm font-medium mb-1 text-blue">
+                        Phone Number
+                      </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Phone Number"
-                          type="text"
-                          {...field} // Only spread the field prop, not fieldState
+                          placeholder="###-###-####"
+                          type="tel"
+                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
+                          {...field}
                         />
                       </FormControl>
                       {fieldState.error && (
@@ -223,12 +238,14 @@ export function ContactForm() {
                   name="message"
                   render={({ field, fieldState }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel className="block text-sm font-medium mb-1 text-blue">
+                        Message
+                      </FormLabel>
                       <FormControl>
-                        <Input
+                        <Textarea
                           placeholder="Message"
-                          type="message"
-                          {...field} // Only spread the field prop, not fieldState
+                          {...field}
+                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm placeholder-gray-400"
                         />
                       </FormControl>
                       {fieldState.error && (
@@ -240,7 +257,13 @@ export function ContactForm() {
                   )}
                 />
 
-                <Button type="submit">Submit</Button>
+                <Button
+                  type="submit"
+                  className="w-full flex justify-between items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600"
+                >
+                  <span>Send Message</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
                 {/* <div>
                   <label
                     htmlFor="name"
