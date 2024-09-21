@@ -3,6 +3,8 @@
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { formSchema } from "@/lib/schemas";
+import { send } from "@/lib/email";
 
 import {
   Form,
@@ -23,19 +25,6 @@ import {
 } from "./ui/select";
 import { Textarea } from "./ui/textarea";
 
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  company: z.string(),
-  options: z.enum([
-    "Solar Decommission",
-    "Recycling Services",
-    "OEM Replacements",
-  ]),
-  emailAddress: z.string().email("Invalid email address"),
-  phoneNumber: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
 export function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -50,6 +39,7 @@ export function ContactForm() {
   });
 
   const handleSubmit = (values: z.infer<typeof formSchema>) => {
+    send(values);
     console.log("Form submitted successfully:", values);
   };
 
