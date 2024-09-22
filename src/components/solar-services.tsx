@@ -14,7 +14,7 @@ export function SolarServices() {
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:w-2/3 leading-tight font-libre-baskerville">
               Solar Decommissioning Services for a Greener Future
             </h1>
-            <div className="space-y-4 text-xs w-1/2 lg:w-2/3 text-gray-400">
+            <div className="space-y-4 text-sm w-1/2 lg:w-2/3 text-gray-400">
               <p>
                 Our team specializes in solar decommissioning services that are
                 both efficient and sustainable.
@@ -42,7 +42,7 @@ export function SolarServices() {
                   key={index}
                   className={`flex items-start space-x-3 ${
                     typeof item === "object" && item.isDescription
-                      ? "text-xs pl-8 w-3/4"
+                      ? "text-sm pl-8 w-3/4"
                       : ""
                   }`}
                 >
