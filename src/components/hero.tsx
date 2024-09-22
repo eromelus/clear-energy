@@ -34,7 +34,7 @@ export function Hero({ onButtonClick }: { onButtonClick: () => void }) {
                 e.preventDefault();
                 onButtonClick();
               }}
-              className="inline-flex items-center border border-white px-8 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-navy"
+              className="inline-flex items-center border border-white px-8 py-2 text-sm font-bold text-white transition-colors hover:bg-white hover:text-navy"
             >
               Learn More
               <svg

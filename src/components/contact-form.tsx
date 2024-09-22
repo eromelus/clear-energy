@@ -125,7 +125,7 @@ export const ContactForm = forwardRef((props, ref) => {
                         <Input
                           placeholder="Write your name"
                           type="text"
-                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-md text-gray-700 text-sm placeholder-gray-400 focus:bg-white focus:outline-none bg-white"
+                          className="w-full px-3 py-2 border-0 text-gray-700 text-sm placeholder-gray-400 focus:bg-white focus:outline-none bg-white rounded-none"
                           {...field}
                           ref={(e) => {
                             field.ref(e);
@@ -155,7 +155,7 @@ export const ContactForm = forwardRef((props, ref) => {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-white text-sm">
+                          <SelectTrigger className="w-full px-3 py-2 bg-darkBlue border-0 text-gray-400 text-sm rounded-none">
                             <SelectValue placeholder="How can we help?" />
                           </SelectTrigger>
                         </FormControl>
@@ -186,7 +186,7 @@ export const ContactForm = forwardRef((props, ref) => {
                         <Input
                           placeholder="Input your company name"
                           type="text"
-                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-gray-700 text-sm placeholder-gray-400 focus:bg-white"
+                          className="w-full px-3 py-2 bg-darkBlue border-0 text-gray-700 text-sm placeholder-gray-400 focus:bg-white rounded-none"
                           {...field}
                         />
                       </FormControl>
@@ -210,7 +210,7 @@ export const ContactForm = forwardRef((props, ref) => {
                         <Input
                           placeholder="Input your working email"
                           type="email"
-                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-gray-700 text-sm placeholder-gray-400 focus:bg-white"
+                          className="w-full px-3 py-2 bg-darkBlue border-0 text-gray-700 text-sm placeholder-gray-400 focus:bg-white rounded-none"
                           {...field}
                         />
                       </FormControl>
@@ -234,7 +234,7 @@ export const ContactForm = forwardRef((props, ref) => {
                         <Input
                           placeholder="###-###-####"
                           type="tel"
-                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-gray-700 text-sm focus:bg-white placeholder-gray-400"
+                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-none text-gray-700 text-sm focus:bg-white placeholder-gray-400"
                           {...field}
                         />
                       </FormControl>
@@ -259,7 +259,7 @@ export const ContactForm = forwardRef((props, ref) => {
                         <Textarea
                           placeholder="Message"
                           {...field}
-                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-sm text-gray-700 text-sm placeholder-gray-400 focus:bg-white focus:outline-none"
+                          className="w-full px-3 py-2 bg-darkBlue border-0 rounded-none text-gray-700 text-sm placeholder-gray-400 focus:bg-white focus:outline-none"
                         />
                       </FormControl>
                       {fieldState.error && (
@@ -273,7 +273,7 @@ export const ContactForm = forwardRef((props, ref) => {
 
                 <Button
                   type="submit"
-                  className="w-full flex justify-between items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600"
+                  className="w-full flex justify-between items-center px-6 py-4 border border-transparent text-base font-bold rounded-none text-white bg-orange-500 hover:bg-orange-600"
                 >
                   <span>Send Message</span>
                   <ArrowRight className="h-5 w-5" />
