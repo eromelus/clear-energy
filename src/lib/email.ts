@@ -10,12 +10,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export const send = async (emailFormData: z.infer<typeof formSchema>) => {
     try {
         // TODO: Add email to database  
-        
+
         const {error } = await resend.emails.send({
             from: `Contact Form <${process.env.RESEND_FROM_EMAIL}>`,
             to: ['eromelus@clearenergypartners.com'],
-            subject: 'Hello world',
-            react: EmailTemplate({ name: emailFormData.name }),
+            subject: 'New Contact Form Submission',
+            react: EmailTemplate({ name: emailFormData.name, company: emailFormData.company, options: emailFormData.options, emailAddress: emailFormData.emailAddress, phoneNumber: emailFormData.phoneNumber, message: emailFormData.message }),
           });
     
     } catch (error) {
