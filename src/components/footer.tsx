@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -30,7 +31,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-8 md:px-6 lg:px-8">
         <div className="mb-8 flex flex-col items-start justify-between lg:flex-row lg:items-start">
           <div className="mb-6 lg:mb-0">
-            <img
+            <Image
               src="/images/logo.png"
               alt="Clear Energy Partners Logo"
               width={160}
