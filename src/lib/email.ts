@@ -11,7 +11,7 @@ export const send = async (emailFormData: z.infer<typeof formSchema>) => {
     try {
         // TODO: Add email to database  
 
-        const {error } = await resend.emails.send({
+        const { } = await resend.emails.send({
             from: `Contact Form <${process.env.RESEND_FROM_EMAIL}>`,
             to: ['eromelus@clearenergypartners.com'],
             subject: 'New Contact Form Submission',

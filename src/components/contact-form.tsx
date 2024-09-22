@@ -68,7 +68,7 @@ export const ContactForm = forwardRef((props, ref) => {
         <div className="lg:flex lg:items-start lg:justify-between">
           <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-100 font-libre-baskerville">
-              Let's Partner For a Greener Future
+              Let&#39;s Partner For a Greener Future
             </h2>
             <p className="mb-6 text-gray-400">
               Are you interested in joining our mission to bring clean energy to

@@ -20,7 +20,7 @@ export function CleanEnergyStats({
         Our Commitment to Excellence
       </h2>
       <p className="text-xl md:text-2xl lg:text-3xl text-navy mb-6 md:mb-8 lg:mb-10 text-center font-libre-baskerville font-bold">
-        We're dedicated to providing exceptional clean energy solutions.
+        We&#39;re dedicated to providing exceptional clean energy solutions.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 md:mb-8 lg:mb-10">
         {stats.map((stat, index) => (
