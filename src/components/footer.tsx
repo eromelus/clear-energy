@@ -13,15 +13,15 @@ export function Footer() {
   const footerSections = [
     {
       title: "Company",
-      links: ["Decommissioning", "Recycling", "About Us", "All Services"],
+      links: ["Decommissioning", "Recycling", "About Us"],
     },
     {
       title: "Legals",
-      links: ["Privacy Policy", "Terms & Agreements", "Help Center"],
+      links: ["Privacy Policy", "Terms & Agreements"],
     },
     {
       title: "Locations",
-      links: ["New York, NY", "Los Angeles, CA", "Chicago, IL"],
+      links: ["Fort Myers, FL", "Hurricane, UT", "Athens, TN"],
     },
   ];
 
@@ -41,7 +41,7 @@ export function Footer() {
               Powering a Greener Tomorrow
             </p>
             <p className="mt-2 text-sm text-navy">
-              © 2023 Clear Energy Partners. All rights reserved.
+              © 2024 Clear Energy Partners. All rights reserved.
             </p>
           </div>
         </div>
