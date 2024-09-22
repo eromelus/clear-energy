@@ -14,7 +14,7 @@ export function SolarServices() {
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:w-2/3 leading-tight font-libre-baskerville">
               Solar Decommissioning Services for a Greener Future
             </h1>
-            <div className="space-y-4 text-sm sm:w-2/3 text-gray-400">
+            <div className="space-y-4 text-sm md:w-2/3 text-gray-400">
               <p>
                 Our team specializes in solar decommissioning services that are
                 both efficient and sustainable.
