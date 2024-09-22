@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { ScrollProvider } from "../contexts/ScrollContext";
 import { Navbar } from "../components/navbar";
-import { Footer } from "@/components/footer";
+import { Footer } from "../components/footer";
 
 import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
@@ -40,13 +41,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} ${getLibreBaskerville.variable} antialiased`}
-      >
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <ScrollProvider>
+        <body
+          className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} ${getLibreBaskerville.variable} antialiased`}
+        >
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </ScrollProvider>
     </html>
   );
 }

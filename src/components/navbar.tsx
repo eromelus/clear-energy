@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useScroll } from "@/contexts/ScrollContext";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollToContactForm } = useScroll();
 
   return (
     <nav className="relative z-10 bg-white mt-2">
@@ -66,12 +68,12 @@ export function Navbar() {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              <Link
-                href="#"
-                className="bg-white text-gray-600 hover:bg-gray-100 px-4 py-3 text-sm font-bold border-2 border-navy"
+              <button
+                onClick={scrollToContactForm}
+                className="bg-white text-navy hover:bg-gray-100 px-4 py-3 text-sm font-bold border-2 border-navy"
               >
                 Contact Us
-              </Link>
+              </button>
               <Link
                 href="#"
                 className="ml-3 bg-orange-500 text-white hover:bg-orange-600 px-4 py-3 text-sm font-bold border-2 border-orange-500"

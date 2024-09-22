@@ -29,7 +29,7 @@ import { forwardRef, useImperativeHandle, useRef } from "react";
 
 export const ContactForm = forwardRef((props, ref) => {
   const formRef = useRef<HTMLFormElement>(null);
-  const nameInputRef = useRef<HTMLInputElement>(null);
+  const nameInputRef = useRef<HTMLInputElement | null>(null);
 
   useImperativeHandle(ref, () => ({
     scrollIntoView: () => {
