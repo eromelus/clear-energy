@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <div className="flex flex-col px-4 py-8 md:px-6 lg:px-8">
-      <h1 className="mb-8 text-center text-3xl font-bold leading-tight text-navy tracking-[-2px]  md:text-4xl lg:text-left lg:text-5xl lg:pl-8 font-libre-baskerville">
+    <div className="flex flex-col max-w-7xl px-4 py-8 mx-auto md:px-6 lg:px-8">
+      <h1 className="mb-8 text-center text-3xl font-bold leading-tight text-navy tracking-[-2px]  md:text-4xl lg:text-left lg:text-5xl font-libre-baskerville">
         Experts in solar <br />
         decommissioning and <br />
         recycling <span className="italic font-[500]">solutions</span>.
@@ -21,8 +21,8 @@ export function Hero() {
           style={{ objectFit: "cover" }}
           priority
         />
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-center lg:inset-0 lg:items-start lg:justify-end">
-          <div className="w-full max-w-[320px] bg-navy p-6 text-white md:max-w-[480px] lg:m-6 lg:max-w-md lg:rounded-lg">
+        <div className="absolute inset-x-0 bottom-0 flex items-end justify-center lg:inset-x-0 lg:top-0 lg:bottom-auto lg:items-start lg:justify-end lg:pr-16">
+          <div className="w-full max-w-[320px] bg-navy p-6 md:p-8 lg:px-16 lg:py-8 mb-4 text-white md:max-w-[480px] lg:m-6 lg:max-w-md">
             <p className="mb-6 text-sm md:text-base">
               We specialize in the safe and responsible decommissioning of solar
               projects, ensuring proper handling and recycling of end-of- life
