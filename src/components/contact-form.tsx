@@ -25,7 +25,26 @@ import {
 } from "./ui/select";
 import { Textarea } from "./ui/textarea";
 
-export function ContactForm() {
+import { forwardRef, useImperativeHandle, useRef } from "react";
+
+export const ContactForm = forwardRef((props, ref) => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const nameInputRef = useRef<HTMLInputElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    scrollIntoView: () => {
+      if (formRef.current) {
+        const yOffset = -100; // Adjust this value to fine-tune the scroll position
+        const y =
+          formRef.current.getBoundingClientRect().top +
+          window.pageYOffset +
+          yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+        setTimeout(() => nameInputRef.current?.focus(), 1000); // Delay focus to ensure scroll is complete
+      }
+    },
+  }));
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -92,6 +111,7 @@ export function ContactForm() {
               <form
                 onSubmit={form.handleSubmit(handleSubmit)}
                 className="space-y-4"
+                ref={formRef}
               >
                 <FormField
                   control={form.control}
@@ -107,6 +127,10 @@ export function ContactForm() {
                           type="text"
                           className="w-full px-3 py-2 bg-darkBlue border-0 rounded-md text-gray-700 text-sm placeholder-gray-400 focus:bg-white focus:outline-none bg-white"
                           {...field}
+                          ref={(e) => {
+                            field.ref(e);
+                            nameInputRef.current = e;
+                          }}
                         />
                       </FormControl>
                       {fieldState.error && (
@@ -261,4 +285,6 @@ export function ContactForm() {
       </div>
     </section>
   );
-}
+});
+
+ContactForm.displayName = "ContactForm";

@@ -2,7 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 
-export function CleanEnergyStats() {
+export function CleanEnergyStats({
+  onButtonClick,
+}: {
+  onButtonClick: () => void;
+}) {
   const stats = [
     { value: "120", label: "Strategic Partnership Formed" },
     { value: "250", label: "Megawatts of Installed Solar Capacity" },
@@ -31,7 +35,10 @@ export function CleanEnergyStats() {
         ))}
       </div>
       <div className="text-center">
-        <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded">
+        <Button
+          onClick={onButtonClick}
+          className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded"
+        >
           Get a Quote
         </Button>
       </div>

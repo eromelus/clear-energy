@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function Hero() {
+export function Hero({ onButtonClick }: { onButtonClick: () => void }) {
   return (
     <div className="flex flex-col max-w-7xl px-4 py-8 mx-auto md:px-6 lg:px-8">
       <h1 className="mb-8 text-center text-3xl font-bold leading-tight text-navy tracking-[-2px]  md:text-4xl lg:text-left lg:text-5xl font-libre-baskerville">
@@ -29,7 +29,11 @@ export function Hero() {
               solar equipment.
             </p>
             <Link
-              href="/learn-more"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                onButtonClick();
+              }}
               className="inline-flex items-center border border-white px-8 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-navy"
             >
               Learn More
