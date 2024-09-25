@@ -53,9 +53,9 @@ export const ContactForm = forwardRef((props, ref) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      options: "Solar Decommission",
-      emailAddress: "",
       company: "",
+      options: undefined, // This ensures no default selection
+      emailAddress: "",
       phoneNumber: "",
       message: "",
     },
@@ -67,10 +67,9 @@ export const ContactForm = forwardRef((props, ref) => {
       await send(values);
       console.log("Form submitted successfully:", values);
       toast.success(
-        "Thank you for contacting us!\n\nWe have received your inquiry and will be in touch shortly!",
+        "Thank you for contacting us 👍\n\nWe have received your inquiry and will be in touch shortly!",
         {
           duration: 5000,
-          icon: "👍",
           style: {
             whiteSpace: "pre-line",
           },
@@ -159,7 +158,7 @@ export const ContactForm = forwardRef((props, ref) => {
                 <FormField
                   control={form.control}
                   name="options"
-                  render={({ field }) => (
+                  render={({ field, fieldState }) => (
                     <FormItem>
                       <FormLabel className="block text-sm font-medium mb-1 text-blue">
                         How Can We Help?
@@ -169,8 +168,8 @@ export const ContactForm = forwardRef((props, ref) => {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger className="w-full px-3 py-2 bg-darkBlue border-0 text-gray-400 text-sm rounded-none">
-                            <SelectValue placeholder="How can we help?" />
+                          <SelectTrigger className="w-full px-3 py-2 bg-darkBlue border-0 text-gray-400 text-sm rounded-none focus:bg-white">
+                            <SelectValue placeholder="Select a service" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -185,6 +184,11 @@ export const ContactForm = forwardRef((props, ref) => {
                           </SelectItem>
                         </SelectContent>
                       </Select>
+                      {fieldState.error && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {fieldState.error.message}
+                        </p>
+                      )}
                     </FormItem>
                   )}
                 />
