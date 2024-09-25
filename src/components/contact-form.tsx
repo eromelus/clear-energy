@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema } from "@/lib/schemas";
 import { send } from "@/lib/email";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 import {
   Form,
@@ -45,6 +47,8 @@ export const ContactForm = forwardRef((props, ref) => {
     },
   }));
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -57,9 +61,28 @@ export const ContactForm = forwardRef((props, ref) => {
     },
   });
 
-  const handleSubmit = (values: z.infer<typeof formSchema>) => {
-    send(values);
-    console.log("Form submitted successfully:", values);
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
+    try {
+      await send(values);
+      console.log("Form submitted successfully:", values);
+      toast.success(
+        "Thank you for contacting us!\n\nWe have received your inquiry and will be in touch shortly!",
+        {
+          duration: 5000,
+          icon: "👍",
+          style: {
+            whiteSpace: "pre-line",
+          },
+        }
+      );
+      form.reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("There was an error sending your message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -265,8 +288,9 @@ export const ContactForm = forwardRef((props, ref) => {
                 <Button
                   type="submit"
                   className="w-full flex justify-between items-center px-6 py-4 border border-transparent text-base font-bold rounded-none text-white bg-orange-500 hover:bg-orange-600"
+                  disabled={isSubmitting}
                 >
-                  <span>Send Message</span>
+                  <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                   <ArrowRight className="h-5 w-5" />
                 </Button>
               </form>
