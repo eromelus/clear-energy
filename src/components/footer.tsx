@@ -18,11 +18,33 @@ export function Footer() {
     },
     {
       title: "Legals",
-      links: ["Privacy Policy", "Terms & Agreements"],
+      links: [
+        {
+          text: "Privacy Policy",
+          url: "https://clearenergypartners.store/policies/privacy-policy",
+        },
+        {
+          text: "Terms & Agreements",
+          url: "https://clearenergypartners.store/pages/policies",
+        },
+      ],
     },
     {
       title: "Locations",
-      links: ["Fort Myers, FL", "Hurricane, UT", "Athens, TN"],
+      links: [
+        {
+          text: "Fort Myers, FL",
+          url: "https://maps.app.goo.gl/idL9uw3rj1EyJ9b1A",
+        },
+        {
+          text: "Hurricane, UT",
+          url: "https://maps.app.goo.gl/ZkDRyzENvVKCQqPh6",
+        },
+        {
+          text: "Athens, TN",
+          url: "https://maps.app.goo.gl/akehaLHYEsUcipaF9",
+        },
+      ],
     },
   ];
 
@@ -71,12 +93,18 @@ export function Footer() {
                 } lg:mt-4 lg:block`}
               >
                 {section.links.map((link) => (
-                  <li key={link}>
+                  <li key={typeof link === "string" ? link : link.text}>
                     <a
-                      href="#"
+                      href={typeof link === "string" ? "#" : link.url}
+                      target={typeof link === "string" ? undefined : "_blank"}
+                      rel={
+                        typeof link === "string"
+                          ? undefined
+                          : "noopener noreferrer"
+                      }
                       className="text-sm text-navy font-semibold hover:text-gray-900"
                     >
-                      {link}
+                      {typeof link === "string" ? link : link.text}
                     </a>
                   </li>
                 ))}
