@@ -93,13 +93,13 @@ export const ContactForm = forwardRef((props, ref) => {
               Let&#39;s Partner For a Greener Future
             </h2>
             <p className="mb-6 text-gray-400">
-              Are you interested in joining our mission to bring clean energy to
-              your community?
+              Are you interested in joining our mission to help ensure the
+              responsible management of solar projects?
             </p>
             <p className="mb-6 text-gray-400">
               Clean Energy Partner is actively seeking partnerships with
-              landowners and community organizations to develop solar projects
-              that benefit local residents.
+              organizations to committed to sustainable practices and
+              responsible solar project decommissioning.
             </p>
             <div className="mb-6">
               <h3 className="font-semibold mb-2 text-gray-50">
