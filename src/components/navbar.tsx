@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react"; // Add ChevronDown import
 import { useScroll } from "@/contexts/ScrollContext";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const { scrollToContactForm } = useScroll();
 
   return (
@@ -42,28 +43,58 @@ export function Navbar() {
             <div className="flex items-baseline space-x-2">
               <Link
                 href="#"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-xs font-bold"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold"
               >
                 Decommissioning
               </Link>
               <Link
                 href="#"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-xs font-bold"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold"
               >
                 Recycling
               </Link>
               <Link
                 href="#"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-xs font-bold"
+                className="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-bold"
               >
                 About Us
               </Link>
-              <Link
-                href="#"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-xs font-bold"
-              >
-                All Services
-              </Link>
+              <div className="relative">
+                <button
+                  onClick={() =>
+                    setIsServicesDropdownOpen(!isServicesDropdownOpen)
+                  }
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold flex items-center"
+                >
+                  All Services
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                {isServicesDropdownOpen && (
+                  <div className="absolute left-0 mt-2 w-48 rounded-none shadow-sm bg-white ring-2 ring-navy ring-opacity-5">
+                    <div
+                      className="py-1"
+                      role="menu"
+                      aria-orientation="vertical"
+                      aria-labelledby="options-menu"
+                    >
+                      <Link
+                        href="#"
+                        className="block px-4 py-2 text-sm text-navy hover:bg-gray-100"
+                        role="menuitem"
+                      >
+                        OEM Replacements
+                      </Link>
+                      <Link
+                        href="#"
+                        className="block px-4 py-2 text-sm text-navy hover:bg-gray-100"
+                        role="menuitem"
+                      >
+                        Sell Excess Inventory
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           <div className="hidden md:block">
