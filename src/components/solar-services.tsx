@@ -8,7 +8,7 @@ export function SolarServices() {
       <div className="max-w-6xl mx-auto p-4 md:p-8 lg:p-12">
         <div className="lg:flex lg:gap-16 xl:gap-24">
           <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-20 md:pr-50">
-            <h2 className="text-amber-500 font-semibold mb-3 text-sm">
+            <h2 className="text-orange font-semibold mb-3 text-sm">
               SAFE, EFFICIENT, SUSTAINABLE
             </h2>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:w-2/3 leading-tight font-libre-baskerville">

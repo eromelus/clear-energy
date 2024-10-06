@@ -37,7 +37,7 @@ export function CleanEnergyStats({
       <div className="text-center">
         <Button
           onClick={onButtonClick}
-          className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-none"
+          className="bg-orange hover:bg-orange-400 text-white font-bold px-6 py-3 rounded-none"
         >
           Get a Quote
         </Button>

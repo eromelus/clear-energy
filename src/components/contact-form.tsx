@@ -291,7 +291,7 @@ export const ContactForm = forwardRef((props, ref) => {
 
                 <Button
                   type="submit"
-                  className="w-full flex justify-between items-center px-6 py-4 border border-transparent text-base font-bold rounded-none text-white bg-orange-500 hover:bg-orange-600"
+                  className="w-full flex justify-between items-center px-6 py-4 border border-transparent text-base font-bold rounded-none text-white bg-orange hover:bg-orange-400"
                   disabled={isSubmitting}
                 >
                   <span>{isSubmitting ? "Sending..." : "Send Message"}</span>

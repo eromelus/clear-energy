@@ -109,7 +109,7 @@ export function Navbar() {
                 href="https://clearenergypartners.store/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-3 bg-orange-500 text-white hover:bg-orange-600 px-4 py-3 text-sm font-bold border-2 border-orange-500"
+                className="ml-3 bg-orange text-white hover:bg-orange-400 px-4 py-3 text-sm font-bold border-2 border-orange"
               >
                 Store
               </Link>
@@ -171,7 +171,7 @@ export function Navbar() {
                 href="https://clearenergypartners.store/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-3 bg-orange-500 text-white hover:bg-orange-600 px-4 py-3 rounded-none text-sm font-bold border-2"
+                className="ml-3 bg-orange text-white hover:bg-orange-400 px-4 py-3 rounded-none text-sm font-bold border-2"
               >
                 Store
               </Link>
