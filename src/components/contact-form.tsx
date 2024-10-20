@@ -26,6 +26,7 @@ import {
   Select,
 } from "./ui/select";
 import { Textarea } from "./ui/textarea";
+import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 
 import { forwardRef, useImperativeHandle, useRef } from "react";
 
@@ -54,10 +55,11 @@ export const ContactForm = forwardRef((props, ref) => {
     defaultValues: {
       name: "",
       company: "",
-      options: undefined, // This ensures no default selection
+      options: undefined,
       emailAddress: "",
       phoneNumber: "",
       message: "",
+      preferredContactMethod: undefined, // Add this line
     },
   });
 
@@ -255,6 +257,43 @@ export const ContactForm = forwardRef((props, ref) => {
                           className="w-full px-3 py-2 bg-darkBlue border-0 rounded-none text-gray-700 text-sm focus:bg-white placeholder-gray-400"
                           {...field}
                         />
+                      </FormControl>
+                      {fieldState.error && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {fieldState.error.message}
+                        </p>
+                      )}
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="preferredContactMethod"
+                  render={({ field, fieldState }) => (
+                    <FormItem className="space-y-3">
+                      <FormLabel className="block text-sm font-medium mb-1 text-blue">
+                        Preferred Contact Method
+                      </FormLabel>
+                      <FormControl>
+                        <RadioGroup
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          className="flex space-x-4"
+                        >
+                          <FormItem className="flex items-center space-x-2">
+                            <FormControl>
+                              <RadioGroupItem value="Email" />
+                            </FormControl>
+                            <FormLabel className="font-normal">Email</FormLabel>
+                          </FormItem>
+                          <FormItem className="flex items-center space-x-2">
+                            <FormControl>
+                              <RadioGroupItem value="Phone" />
+                            </FormControl>
+                            <FormLabel className="font-normal">Phone</FormLabel>
+                          </FormItem>
+                        </RadioGroup>
                       </FormControl>
                       {fieldState.error && (
                         <p className="text-red-500 text-sm mt-1">

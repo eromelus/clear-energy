@@ -15,7 +15,14 @@ export const send = async (emailFormData: z.infer<typeof formSchema>) => {
             from: `Contact Form <${process.env.RESEND_FROM_EMAIL}>`,
             to: ['eromelus@clearenergypartners.com'],
             subject: 'New Contact Form Submission',
-            react: EmailTemplate({ name: emailFormData.name, company: emailFormData.company, options: emailFormData.options, emailAddress: emailFormData.emailAddress, phoneNumber: emailFormData.phoneNumber, message: emailFormData.message }),
+            react: EmailTemplate({ 
+                name: emailFormData.name, 
+                company: emailFormData.company, 
+                options: emailFormData.options, 
+                emailAddress: emailFormData.emailAddress, 
+                phoneNumber: emailFormData.phoneNumber,
+                preferredContactMethod: emailFormData.preferredContactMethod,
+                message: emailFormData.message }),
           });
     
     } catch (error) {

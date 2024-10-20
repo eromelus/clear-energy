@@ -13,5 +13,8 @@ export const formSchema = z.object({
     }),
     emailAddress: z.string().email("Invalid email address").nonempty("Email address is required"),
     phoneNumber: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number").nonempty("Phone number is required"),
+    preferredContactMethod: z.enum(["Email", "Phone"], {
+      required_error: "Please select a preferred contact method",
+    }),
     message: z.string().min(10, "Message must be at least 10 characters").nonempty("Message is required"),
   });
