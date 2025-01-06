@@ -20,7 +20,7 @@ const config: Config = {
 				DEFAULT: '#0D1E2D'
 			},
 			orange: {
-				DEFAULT: '#E5A86C'
+				DEFAULT: '#FF9D00'
 			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
