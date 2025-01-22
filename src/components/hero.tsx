@@ -7,7 +7,8 @@ export function Hero({ onButtonClick }: { onButtonClick: () => void }) {
   return (
     <div className="flex flex-col max-w-7xl px-4 py-8 mx-auto md:px-6 lg:px-8">
       <h1 className="mb-8 text-center text-3xl font-bold leading-tight text-navy tracking-[-2px]  md:text-4xl lg:text-left lg:text-5xl font-libre-baskerville">
-        Experts in solar <br />
+        Solar distribution
+        <br />
         decommissioning and <br />
         recycling <span className="italic font-[500]">solutions</span>.
       </h1>
