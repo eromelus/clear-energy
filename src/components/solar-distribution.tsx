@@ -25,7 +25,7 @@ export function SolarDistribution({
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-bold leading-tight font-libre-baskerville">
-              Efficient Distribution of Solar Equipment Distribution
+              Efficient Distribution of Solar Equipment
             </h1>
 
             <p className="text-sm opacity-90 leading-relaxed">
