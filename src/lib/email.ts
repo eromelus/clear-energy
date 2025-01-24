@@ -32,11 +32,11 @@ export const send = async (emailFormData: z.infer<typeof formSchema>) => {
             }),
         });
 
-        if (!result || !result.id) {
+        if (!result) {
             throw new Error('Failed to send email');
         }
 
-        return { success: true, id: result.id };
+        return { success: true };
     } catch (error) {
         console.error('Email sending error:', error);
         throw new Error(error instanceof Error ? error.message : 'Failed to send email');
