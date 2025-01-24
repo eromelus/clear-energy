@@ -10,7 +10,7 @@ export function CleanEnergyStats({
   const stats = [
     { value: "120", label: "Strategic Partnership Formed" },
     { value: "10+", label: "Years of Solar Decommissioning Expertise" },
-    { value: "50k", label: "Solar Panels Recycled" },
+    { value: "150k", label: "Solar Panels Recycled" },
     { value: "90%", label: "Reduction in Solar Waste to Landfills" },
   ];
 
