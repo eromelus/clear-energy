@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 
 import { ScrollProvider } from "../contexts/ScrollContext";
 import { Navbar } from "../components/navbar";
@@ -45,6 +46,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-JVNWSV0Z01"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-JVNWSV0Z01');
+            `,
+          }}
+        />
+      </head>
       <ScrollProvider>
         <body
           className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} ${getLibreBaskerville.variable} antialiased`}
