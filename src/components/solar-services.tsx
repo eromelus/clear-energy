@@ -36,7 +36,7 @@ export function SolarServices() {
                   isDescription: true,
                 },
                 "Replacement OEM Solar Panels",
-                "Wholsesale Solar Panel Distibutor",
+                "Wholesale Solar Panel Distributor",
               ].map((item, index) => (
                 <div
                   key={index}
