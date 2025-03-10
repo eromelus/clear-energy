@@ -63,6 +63,13 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script
+          id="ahrefs-analytics"
+          strategy="afterInteractive"
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="BouO+mwgg7hHu4pDHDgZZQ"
+          async
+        />
       </head>
       <ScrollProvider>
         <body
