@@ -111,10 +111,10 @@ export const ContactForm = forwardRef((props, ref) => {
                 <li>
                   <span className="font-semibold">General Inquiries:</span>{" "}
                   <a
-                    href="mailto:info@cleanenergypartner.com"
+                    href="mailto:info@cleanenergypartners.com"
                     className="text-blue-300 hover:text-blue-200"
                   >
-                    info@cleanenergypartner.com
+                    info@cleanenergypartners.com
                   </a>
                 </li>
               </ul>
